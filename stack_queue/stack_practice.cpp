@@ -22,7 +22,7 @@ void pop(){
 }
 
 void print(){
-    for(int i=0;i<=top;i++){
+    for(int i=0;i<capacity;i++){
         cout<<stack[i]<<"->";
     }
 }
@@ -35,6 +35,9 @@ int main(){
    push(40);
    push(50);
     pop();
+     pop();
+      pop();
+       pop();
      push(60);
    print();
     
