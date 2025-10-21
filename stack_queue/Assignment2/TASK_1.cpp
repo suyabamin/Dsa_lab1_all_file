@@ -4,8 +4,9 @@ int top=-1;
 int stack[100];
 
 void push(int x,int max_size){
-      if(top>max_size-1){
+      if(top>=max_size-1){
        cout<<"stack is overflow"<<endl;
+       return;
       }
        top++;
         stack[top]=x;
@@ -13,28 +14,28 @@ void push(int x,int max_size){
       cout<<"items-";
       for(int i=0;i<=top;i++){
          cout<<stack[i]<<" ";
+          if (i != top) cout << " ";
       }
       cout<<endl;
 }
 
-void  deque(int max_size){
-    top--;
-    if(top>0){
-       // top--;
-         cout<<"size="<<top+1;
-      cout<<"items-";
-      for(int i=0;i<=top;i++){
-         cout<<stack[i]<<" ";
-      }
-      cout<<endl;
-
-    }else{
-         // top--;
-        cout<<"size-"<<top+1;
-        cout<<"items=NULL";
-        cout<<endl;
+void  pop(){
+     if (top == -1) {                     // empty
+        cout << "size=0 items=NULL" << endl;
+        return;
     }
-   
+    top--;
+
+    if (top == -1)
+        cout << "size=0 items=NULL" << endl;
+    else {
+        cout << "size=" << top + 1 << " items=";
+        for (int i = 0; i <= top; i++) {
+            cout << stack[i];
+            if (i != top) cout << " ";
+        }
+        cout << endl;
+    }
 }
 
 int main(){
@@ -55,7 +56,7 @@ int main(){
             cin>>x;
             push(x,c);
         }else if(ch==2){
-            deque(c);
+            pop();
         }
      }
 }
